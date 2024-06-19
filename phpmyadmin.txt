@@ -1,0 +1,55 @@
+//BASE PRINCIPAL
+create database logincrud2;
+
+use logincrud2;
+
+DROP TABLE IF EXISTS usuarios;
+CREATE TABLE IF NOT EXISTS usuarios (
+  nom varchar(50) NOT NULL,
+  correo varchar(50) NOT NULL,
+  pass varchar(50) NOT NULL,
+
+  PRIMARY KEY (correo)
+);
+
+//REGISTRAR USUARIOS
+INSERT INTO usuarios (nom, correo, pass) VALUES
+('Paul Christian', 'admin@gmail.com', 'admin123'),
+('Juan Pérez', 'juanperez@gmail.com', '123456'),
+('Ana García', 'anagarcia@hotmail.com', 'abc123'),
+('Luis Hernández', 'luishernandez@yahoo.com', 'qwerty');
+
+//Crear database
+DROP TABLE IF EXISTS categoria_productos;
+CREATE TABLE IF NOT EXISTS categoria_productos (
+  id int NOT NULL AUTO_INCREMENT,
+  nombre varchar(50) DEFAULT NULL,
+  PRIMARY KEY (id)
+);
+
+INSERT INTO categoria_productos (id, nombre) VALUES
+(1, 'Nombre'),
+(2, 'Nombre'),
+(3, 'Nombre'),
+(4, 'Nombre'),
+(5, 'Nombre'),
+(6, 'Nombre'),
+(7, 'Nombre'),
+(8, 'Nombre');
+
+//Crear database
+DROP TABLE IF EXISTS productos;
+CREATE TABLE IF NOT EXISTS `productos` (
+  id int NOT NULL AUTO_INCREMENT,
+  nombre varchar(50) DEFAULT NULL,
+  descripcion varchar(255) DEFAULT NULL,
+  contenido(10,2) DEFAULT NULL,
+  categoria_id int DEFAULT NULL,
+  PRIMARY KEY (id),
+  KEY categoria_id (categoria_id)
+);
+
+//insertar datos
+INSERT INTO productos (id, nombre, descripcion, adicional, categoria_id) VALUES
+('1','juan','programacion,'si','Nombre'),
+('2','julian','mecanica,'no','fisica');
